@@ -28,8 +28,10 @@ export class TestComponent implements OnInit {
     console.log(this.names.id);
   }
   isLoaded(event,i){
-    event.path[3].children[i+1].children[1].setAttribute("class","thumbnail loaded");
-    event.path[3].children[i+1].children[2].setAttribute("class","thumbnail-c removeLoaded");
+    event.target.parentElement.setAttribute("class","thumbnail loaded")
+    event.target.parentElement.nextElementSibling.setAttribute("class","thumbnail-c removeLoaded");
+    //event.path[3].children[i+1].children[1].setAttribute("class","thumbnail loaded");
+    //event.path[3].children[i+1].children[2].setAttribute("class","thumbnail-c removeLoaded");
   }
 
 }
