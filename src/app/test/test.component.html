@@ -1,0 +1,24 @@
+<!-- <section class="search-wrapper">
+    <h1>
+        Angular 2 Search !
+      </h1>
+      <ul>
+        <input [(ngModel)]="searchString" placeholder="Search for news">
+        <li *ngFor="let n of data1 | FilterPipe: searchString | slice:0:5" (click)="nameclicked(n)">
+            <a [routerLink]="['/artistdetail',n.id,n.name]" routerLinkActive="active">{{n.name}}</a>
+        </li>
+      </ul>
+</section> -->
+<section class="news-wrapper">
+    <h1>Image Blur Up</h1>
+    <li *ngFor="let news of data1, let i=index">
+        <h1>{{news.title}}</h1>
+        <div class="thumbnail">
+            <img [src]='news.thumbnail' width='100%' height='auto' class='original' (load)="isLoaded($event,i)" />
+        </div>
+        <div class="thumbnail-c">
+            <img [src]='news.thumbnailv1' width='100%' height='auto' class='base64' />
+        </div>
+    </li>
+</section>
+<router-outlet></router-outlet>
