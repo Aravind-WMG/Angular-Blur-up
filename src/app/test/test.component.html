@@ -9,7 +9,7 @@
         </li>
       </ul>
 </section> -->
-<section class="news-wrapper">
+<section class="news-wrapper" *ngIf="data1">
     <h1>Image Blur Up</h1>
     <li *ngFor="let news of data1, let i=index">
         <h1>{{news.title}}</h1>

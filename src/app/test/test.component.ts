@@ -9,29 +9,26 @@ import { ArtistService } from '../artistservice/artistservice.service';
 })
 export class TestComponent implements OnInit {
   data1;
-  searchString:string;
-  names;
-  imgLoaded:boolean = false;
-  removeLoaded:boolean = true;
   constructor(private artser:ArtistService) {
    }
 
   ngOnInit():void {
-    // this.artser.getArtistList().subscribe(data=>this.data1=data);
     this.artser.getNews().subscribe(
-      data=>
-      this.data1 = data);
-  }
-  nameclicked(name){
-    this.names=name;
-    let empid:number;
-    console.log(this.names.id);
+      data=>{
+        this.data1 = data
+      },
+      err =>{
+        console.error(err);
+      },
+      () =>{
+        var a = document.getElementsByTagName('body')[0];
+         a.classList.remove("loading");   
+      } 
+    );
   }
   isLoaded(event,i){
-    event.target.parentElement.setAttribute("class","thumbnail loaded")
-    event.target.parentElement.nextElementSibling.setAttribute("class","thumbnail-c removeLoaded");
-    //event.path[3].children[i+1].children[1].setAttribute("class","thumbnail loaded");
-    //event.path[3].children[i+1].children[2].setAttribute("class","thumbnail-c removeLoaded");
+    event.target.parentElement.classList.add("loaded")
+    event.target.parentElement.nextElementSibling.classList.add("removeLoaded");
   }
 
 }
